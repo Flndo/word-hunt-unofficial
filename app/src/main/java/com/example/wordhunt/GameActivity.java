@@ -24,6 +24,7 @@ import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
     private static final int gridSize = 5;
+    private static final int cellSafeZone = 17;
 
     private final TextView[][] virtualGrid = new TextView[gridSize][gridSize];
     private final HashSet<TextView> usedLetters = new HashSet<>();
@@ -114,8 +115,8 @@ public class GameActivity extends AppCompatActivity {
                 float textViewX = location[0];
                 float textViewY = location[1];
 
-                if (rawX >= textViewX && rawX <= textViewX + textView.getWidth() &&
-                        rawY >= textViewY && rawY <= textViewY + textView.getHeight()) {
+                if (rawX - cellSafeZone >= textViewX && rawX + cellSafeZone <= textViewX + textView.getWidth() &&
+                        rawY - cellSafeZone >= textViewY && rawY + cellSafeZone <= textViewY + textView.getHeight()) {
                     if (previousRow == -1 && previousColumn == -1 || (abs(row - previousRow) <= 1 && abs(column - previousColumn) <= 1 && !usedLetters.contains(virtualGrid[row][column]))) {
                         previousRow = row;
                         previousColumn = column;
@@ -128,7 +129,9 @@ public class GameActivity extends AppCompatActivity {
         }
         return null;
     }
+    private void addLetter(TextView cell) {
 
+    }
     private int abs(int x) {
         if (x < 0) {
             return -x;
