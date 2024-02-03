@@ -1,4 +1,4 @@
-package com.example.wordhunt;
+package com.example.wordhunt.api;
 
 import java.util.Random;
 

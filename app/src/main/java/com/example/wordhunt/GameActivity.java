@@ -1,26 +1,16 @@
 package com.example.wordhunt;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
+import com.example.wordhunt.api.GridSetup;
+import com.example.wordhunt.api.WordCheck;
 
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
     private static final int gridSize = 5;
@@ -32,18 +22,21 @@ public class GameActivity extends AppCompatActivity {
     private int previousRow = -1; private int previousColumn = -1;
     private final int titleBackground = R.drawable.tile_background;
     private final int titleBackgroundPressed = R.drawable.tile_background_pressed;
-
-    @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
+    private final int titleBackgroundPressedOk = R.drawable.tile_background_pressed_ok;
+    WordCheck wordCheck;
+    TextView timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         GridSetup gridSetup = new GridSetup();
         gridSetup.fillLetterGrid();
         String[][] letterGrid = gridSetup.getLetterGrid();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        TextView timer = findViewById(R.id.timerTextView);
+        timer = findViewById(R.id.timerTextView);
+        wordCheck = WordCheck.wordCheck;
+
+//        TextView timer = findViewById(R.id.timerTextView);
         timer.setText("02:00");
 
 
@@ -74,8 +67,6 @@ public class GameActivity extends AppCompatActivity {
         virtualGrid[4][4] = findViewById(R.id.cell44);
         for (int row = 0; row < gridSize; row++) {
             for (int column = 0; column < gridSize; column++) {
-                final int c = column;
-                final int r = row;
                 virtualGrid[row][column].setText(letterGrid[row][column]);
             }
         }
@@ -91,16 +82,18 @@ public class GameActivity extends AppCompatActivity {
                 letterSequence.pop();
             }
             previousColumn = previousRow = -1;
+
         } else if (cell == null) {
             return super.onTouchEvent(event);
-        } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            cell.setBackground(getDrawable(titleBackgroundPressed));
-            letterSequence.push(cell);
-            usedLetters.add(cell);
-        } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            cell.setBackground(getDrawable(titleBackgroundPressed));
-            letterSequence.push(cell);
-            usedLetters.add(cell);
+        } else if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+            addLetter(cell);
+            int score = wordCheck.wordScore(letterSequence);
+            timer.setText(intToString(score));
+            if (score != 0) {
+                colorRight(letterSequence);
+            } else {
+                colorPressed(letterSequence);
+            }
         }
         return super.onTouchEvent(event);
     }
@@ -130,12 +123,35 @@ public class GameActivity extends AppCompatActivity {
         return null;
     }
     private void addLetter(TextView cell) {
-
+        cell.setBackground(getDrawable(titleBackgroundPressed));
+        letterSequence.push(cell);
+        usedLetters.add(cell);
     }
     private int abs(int x) {
         if (x < 0) {
             return -x;
         }
         return x;
+    }
+    private String intToString(int number) {
+        return String.valueOf(number);
+    }
+    private void colorEmpty(LinkedList<TextView> sequence) {
+        for (TextView cell: sequence) {
+            cell.setBackground(getDrawable(titleBackground));
+        }
+    }
+    private void colorPressed(LinkedList<TextView> sequence) {
+        for (TextView cell: sequence) {
+            cell.setBackground(getDrawable(titleBackgroundPressed));
+        }
+    }
+    private void colorRight(LinkedList<TextView> sequence) {
+        for (TextView cell: sequence) {
+            cell.setBackground(getDrawable(titleBackgroundPressedOk));
+        }
+    }
+    private void colorUsed(LinkedList<TextView> sequence) {
+
     }
 }
