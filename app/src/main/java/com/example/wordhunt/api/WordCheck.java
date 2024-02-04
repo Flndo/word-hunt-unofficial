@@ -2,22 +2,20 @@ package com.example.wordhunt.api;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 
 public class WordCheck {
 
     public static WordCheck wordCheck = new WordCheck();
 
     private HashSet<String> wordList = new HashSet<>();
+    private HashSet<String> wordUsed = new HashSet<>();
     public final String dictionaryPath = "wordDictionary.txt";
     private final int[] lengthScore = new int[26];
     public WordCheck() {
@@ -31,7 +29,7 @@ public class WordCheck {
         }
     }
 
-    public int wordScore(LinkedList<TextView> wordLinked) {
+    public int wordScore(LinkedList<TextView> wordLinked, boolean finalized) {
         StringBuilder stringBuilder = new StringBuilder();
         for (TextView letterView: wordLinked) {
             stringBuilder.append(letterView.getText());
@@ -39,7 +37,12 @@ public class WordCheck {
         String word = stringBuilder.reverse().toString();
         if (!wordList.contains(word)) {
             return 0;
+        }  else if (wordUsed.contains(word)) {
+            return finalized ? 0 : 1;
         } else {
+            if (finalized) {
+                wordUsed.add(word);
+            }
             return lengthScore[word.length()];
         }
     }
