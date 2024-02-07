@@ -14,8 +14,8 @@ public class WordCheck {
 
     public static WordCheck wordCheck = new WordCheck();
 
-    private HashSet<String> wordList = new HashSet<>();
-    private HashSet<String> wordUsed = new HashSet<>();
+    private final HashSet<String> wordList = new HashSet<>();
+    private final HashSet<String> wordUsed = new HashSet<>();
     public final String dictionaryPath = "wordDictionary.txt";
     private final int[] lengthScore = new int[26];
     public WordCheck() {
@@ -61,5 +61,9 @@ public class WordCheck {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void clearGame() {
+        wordUsed.clear();
     }
 }
