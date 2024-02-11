@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1C1C84">
+
+    <!-- Score Panel -->
+    <LinearLayout
+        android:id="@+id/scorePanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/avatarImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/avatar_icon" /> <!-- Replace with your avatar drawable -->
+
+        <TextView
+            android:id="@+id/wordsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/letterGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:columnCount="5"
+        android:padding="16dp"
+        android:rowCount="5">
+
+        <!-- Row 1 -->
+        <TextView
+            android:id="@+id/cell00"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell01"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell02"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell03"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell04"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <!-- Row 2 -->
+        <TextView
+            android:id="@+id/cell10"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell11"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell12"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell13"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell14"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="2"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <!-- Row 3 -->
+        <TextView
+            android:id="@+id/cell20"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell21"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell22"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell23"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell24"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <!-- Row 4 -->
+        <TextView
+            android:id="@+id/cell30"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell31"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell32"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell33"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell34"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="4"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <!-- Row 5 -->
+        <TextView
+            android:id="@+id/cell40"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell41"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell42"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell43"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+        <TextView
+            android:id="@+id/cell44"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="5dp"
+            android:layout_weight="5"
+            android:background="@drawable/tile_background_large"
+            android:gravity="center"
+            android:textSize="46sp" />
+
+    </GridLayout>
+
+
+    <!-- User Interaction Area -->
+    <LinearLayout
+        android:id="@+id/userInteractionArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="28dp">
+    </LinearLayout>
+
+</RelativeLayout>

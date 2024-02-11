@@ -2,6 +2,7 @@ package com.example.wordhunt;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -16,6 +17,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 public class GameActivity extends AppCompatActivity {
+    boolean layoutLarge = false;
     private static final int gridSize = 5;
     private static final int cellSafeZone = 17;
     private int totalScore = 0;
@@ -28,11 +30,21 @@ public class GameActivity extends AppCompatActivity {
     private final int tileBackgroundPressed = R.drawable.tile_background_pressed;
     private final int tileBackgroundPressedOk = R.drawable.tile_background_pressed_ok;
     private final int tileBackgroundPressedUsed = R.drawable.tile_background_pressed_used;
+    private final int tileBackgroundLarge = R.drawable.tile_background_large;
+    private final int tileBackgroundPressedLarge = R.drawable.tile_background_pressed_large;
+    private final int tileBackgroundPressedOkLarge = R.drawable.tile_background_pressed_ok_large;
+    private final int tileBackgroundPressedUsedLarge = R.drawable.tile_background_pressed_used_large;
     WordCheck wordCheck;
     TextView scoreTextView, wordsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Configuration configuration = getResources().getConfiguration();
+        int screenSize = configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+        if (screenSize >= Configuration.SCREENLAYOUT_SIZE_LARGE) {
+            layoutLarge = true;
+        }
+
         GridSetup gridSetup = new GridSetup();
         gridSetup.fillLetterGrid();
         String[][] letterGrid = gridSetup.getLetterGrid();
@@ -59,7 +71,6 @@ public class GameActivity extends AppCompatActivity {
 
         TextView timerTextView = findViewById(R.id.timerTextView);
         startTimer(timerTextView, 120000); //120000 milliseconds = 2 minutes
-
     }
 
     private void startTimer(TextView timerTextView, long timeLengthMilliseconds) {
@@ -97,8 +108,8 @@ public class GameActivity extends AppCompatActivity {
             int score = wordCheck.wordScore(letterSequence, true);
             totalScore += score;
             scoreTextView.setText(intToString(totalScore));
+            colorEmpty(letterSequence);
             while (!letterSequence.isEmpty()) {
-                letterSequence.getFirst().setBackground(getDrawable(tileBackground));
                 usedLetters.remove(letterSequence.getFirst());
                 letterSequence.pop();
             }
@@ -162,26 +173,54 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void colorEmpty(LinkedList<TextView> sequence) {
-        for (TextView cell : sequence) {
-            cell.setBackground(getDrawable(tileBackground));
+        if (layoutLarge) {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundLarge));
+            }
+        }
+        else {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackground));
+            }
         }
     }
 
     private void colorPressed(LinkedList<TextView> sequence) {
-        for (TextView cell : sequence) {
-            cell.setBackground(getDrawable(tileBackgroundPressed));
+        if (layoutLarge) {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressedLarge));
+            }
+        }
+        else {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressed));
+            }
         }
     }
 
     private void colorRight(LinkedList<TextView> sequence) {
-        for (TextView cell : sequence) {
-            cell.setBackground(getDrawable(tileBackgroundPressedOk));
+        if (layoutLarge) {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressedOkLarge));
+            }
+        }
+        else {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressedOk));
+            }
         }
     }
 
     private void colorUsed(LinkedList<TextView> sequence) {
-        for (TextView cell : sequence) {
-            cell.setBackground(getDrawable(tileBackgroundPressedUsed));
+        if (layoutLarge) {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressedUsedLarge));
+            }
+        }
+        else {
+            for (TextView cell : sequence) {
+                cell.setBackground(getDrawable(tileBackgroundPressedUsed));
+            }
         }
     }
 }

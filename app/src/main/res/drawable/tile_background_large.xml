@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- This is the background color of the tile -->
+            <corners android:radius="16dp"/> <!-- This is the corner radius -->
+            <stroke android:width="4dp" android:color="#E0E0E0"/> <!-- This is the border of the tile -->
+        </shape>
+    </item>
+</selector>
