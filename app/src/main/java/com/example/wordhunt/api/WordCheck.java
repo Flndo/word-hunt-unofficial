@@ -9,13 +9,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class WordCheck {
 
     public static WordCheck wordCheck = new WordCheck();
 
-    private final HashSet<String> wordList = new HashSet<>();
-    private final HashSet<String> wordUsed = new HashSet<>();
+    private final Set<String> wordList = new HashSet<>();
+    private final Set<String> wordUsed = new HashSet<>();
     public final String dictionaryPath = "wordDictionary.txt";
     private final int[] lengthScore = new int[26];
     public WordCheck() {
@@ -52,10 +53,7 @@ public class WordCheck {
             BufferedReader reader = new BufferedReader(new InputStreamReader(assetManager.open(dictionaryPath)));
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] words = line.split("\\s+");
-                for (String word : words) {
-                    wordList.add(word.trim());
-                }
+                wordList.add(line);
             }
             reader.close();
         } catch (IOException e) {
