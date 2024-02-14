@@ -36,7 +36,6 @@ public class GameActivity extends AppCompatActivity {
     private final int tileBackgroundPressedUsedLarge = R.drawable.tile_background_pressed_used_large;
     WordCheck wordCheck;
     TextView scoreTextView, wordsTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Configuration configuration = getResources().getConfiguration();
