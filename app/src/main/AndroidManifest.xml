@@ -18,6 +18,11 @@
             android:label="@string/title_activity_game"
             android:theme="@style/Theme.WordHunt" />
         <activity
+            android:name=".ScoreActivity"
+            android:exported="true"
+            android:label="@string/title_activity_game"
+            android:theme="@style/Theme.WordHunt"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.WordHunt">

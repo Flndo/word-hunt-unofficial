@@ -66,7 +66,8 @@
             android:layout_weight="1"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell01"
@@ -76,7 +77,8 @@
             android:layout_weight="1"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell02"
@@ -86,7 +88,8 @@
             android:layout_weight="1"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell03"
@@ -96,7 +99,8 @@
             android:layout_weight="1"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell04"
@@ -106,7 +110,8 @@
             android:layout_weight="1"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <!-- Row 2 -->
         <TextView
@@ -117,7 +122,8 @@
             android:layout_weight="2"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell11"
@@ -127,7 +133,8 @@
             android:layout_weight="2"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell12"
@@ -137,7 +144,8 @@
             android:layout_weight="2"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell13"
@@ -147,7 +155,8 @@
             android:layout_weight="2"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell14"
@@ -157,7 +166,8 @@
             android:layout_weight="2"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <!-- Row 3 -->
         <TextView
@@ -168,7 +178,8 @@
             android:layout_weight="3"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell21"
@@ -178,7 +189,8 @@
             android:layout_weight="3"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell22"
@@ -188,7 +200,8 @@
             android:layout_weight="3"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell23"
@@ -198,7 +211,8 @@
             android:layout_weight="3"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell24"
@@ -208,7 +222,8 @@
             android:layout_weight="3"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <!-- Row 4 -->
         <TextView
@@ -219,7 +234,8 @@
             android:layout_weight="4"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell31"
@@ -229,7 +245,8 @@
             android:layout_weight="4"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell32"
@@ -239,7 +256,8 @@
             android:layout_weight="4"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell33"
@@ -249,7 +267,8 @@
             android:layout_weight="4"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell34"
@@ -259,7 +278,8 @@
             android:layout_weight="4"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <!-- Row 5 -->
         <TextView
@@ -270,7 +290,8 @@
             android:layout_weight="5"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell41"
@@ -280,7 +301,8 @@
             android:layout_weight="5"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell42"
@@ -290,7 +312,8 @@
             android:layout_weight="5"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell43"
@@ -300,7 +323,8 @@
             android:layout_weight="5"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/cell44"
@@ -310,7 +334,8 @@
             android:layout_weight="5"
             android:background="@drawable/tile_background"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="28sp"
+            android:textColor="@color/black"/>
 
     </GridLayout>
 
