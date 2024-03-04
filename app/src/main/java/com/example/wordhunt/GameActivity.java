@@ -1,7 +1,9 @@
 package com.example.wordhunt;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wordhunt.api.GlobalClasses;
 import com.example.wordhunt.api.GridSetup;
 import com.example.wordhunt.api.WordCheck;
 
@@ -84,18 +87,10 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 timerTextView.setText(R.string.zeroTime);
 
-                String congratulationMessage = "Congratulations! Your score is: " + totalScore;
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                builder.setTitle("Time's Up!");
-                builder.setMessage(congratulationMessage);
-                builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(intent);
-                });
-                builder.setIcon(android.R.drawable.star_big_on);
-                builder.show();
+                GlobalClasses.setWordCheck(wordCheck);
+                Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
             }
         }.start();
     }

@@ -2,11 +2,13 @@ package com.example.wordhunt.api;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.os.Parcelable;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -15,9 +17,9 @@ public class WordCheck {
     public static WordCheck wordCheck = new WordCheck();
 
     private final HashSet<String> wordList = new HashSet<>();
-    private final HashSet<String> wordUsed = new HashSet<>();
+    public final HashSet<String> wordUsed = new HashSet<>();
     public final String dictionaryPath = "wordDictionary.txt";
-    private final int[] lengthScore = new int[26];
+    public final int[] lengthScore = new int[26];
     public WordCheck() {
         lengthScore[3] = 100;
         lengthScore[4] = 400;

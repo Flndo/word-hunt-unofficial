@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#1C1C84">
+    android:background="#1C1C84"
+    tools:context=".ScoreActivity">
 
     <ImageView
         android:id="@+id/avatarImage"
@@ -41,6 +42,7 @@
                 android:textSize="12sp"
                 android:textColor="#000000"/>
             <TextView
+                android:id="@+id/score_word_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -53,7 +55,7 @@
             android:id="@+id/score_linear1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/score_linear0">
+            android:layout_below="@id/score_linear0">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,6 +65,7 @@
                 android:textSize="20sp"
                 android:textColor="#000000"/>
             <TextView
+                android:id="@+id/score_count_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -88,12 +91,16 @@
 
         <TextView
             android:id="@+id/score_cell00"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell01"
@@ -104,7 +111,6 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -112,23 +118,26 @@
 
         <TextView
             android:id="@+id/score_cell10"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell11"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -136,23 +145,26 @@
 
         <TextView
             android:id="@+id/score_cell20"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell21"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -160,23 +172,26 @@
 
         <TextView
             android:id="@+id/score_cell30"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell31"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -184,23 +199,26 @@
 
         <TextView
             android:id="@+id/score_cell40"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell41"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -208,23 +226,26 @@
 
         <TextView
             android:id="@+id/score_cell50"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell51"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -232,23 +253,26 @@
 
         <TextView
             android:id="@+id/score_cell60"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell61"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -256,23 +280,26 @@
 
         <TextView
             android:id="@+id/score_cell70"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell71"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -280,23 +307,26 @@
 
         <TextView
             android:id="@+id/score_cell80"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell81"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -304,23 +334,26 @@
 
         <TextView
             android:id="@+id/score_cell90"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell91"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -328,26 +361,57 @@
 
         <TextView
             android:id="@+id/score_cell100"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/background_highlight_word" />
+            android:background="@drawable/background_highlight_word"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/score_cell101"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:fontFamily="monospace"
             android:gravity="center"
-            android:text="1000"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:ignore="RtlHardcoded" />
     </GridLayout>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignStart="@+id/score_grid"
+        android:layout_alignEnd="@+id/score_grid"
+        android:layout_below="@+id/score_grid"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:columnCount="2">
+        <Button
+            android:id="@+id/button_exit"
+            android:layout_height="match_parent"
+            android:layout_width="160dp"
+            android:background="@drawable/button"
+            android:text="Exit"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:text="Save"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="@drawable/button"/>
+    </TableRow>
 </RelativeLayout>
