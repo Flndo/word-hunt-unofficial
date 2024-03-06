@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,8 @@ public class WordHunterDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<String> getTop10Scores() {
-        List<String> topScores = new ArrayList<>();
+    public List<Pair<String, Integer>> getTop10Scores() {
+        List<Pair<String, Integer>> topScores = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_SCORES + " ORDER BY " + COLUMN_SCORE + " DESC LIMIT 10";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -65,9 +66,7 @@ public class WordHunterDatabaseHelper extends SQLiteOpenHelper {
             // Ensure both indices are found
             if (userNameIndex != -1 && scoreIndex != -1) {
                 do {
-                    String userScore = cursor.getString(userNameIndex) + ": " +
-                            cursor.getInt(scoreIndex);
-                    topScores.add(userScore);
+                    topScores.add(new Pair<>(cursor.getString(userNameIndex), cursor.getInt(scoreIndex)));
                 } while (cursor.moveToNext());
             }
         }

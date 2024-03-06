@@ -20,7 +20,12 @@
         <activity
             android:name=".ScoreActivity"
             android:exported="true"
-            android:label="@string/title_activity_game"
+            android:label="ScoreActivity"
+            android:theme="@style/Theme.WordHunt"/>
+        <activity
+            android:name=".LeaderboardActivity"
+            android:exported="true"
+            android:label="LeaderboardActivity"
             android:theme="@style/Theme.WordHunt"/>
         <activity
             android:name=".MainActivity"

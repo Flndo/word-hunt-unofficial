@@ -390,7 +390,7 @@
             android:background="@drawable/button_large"
             android:text="Exit"
             android:textStyle="bold"
-            android:textSize="30sp"/>
+            android:textSize="24sp"/>
 
         <Button
             android:id="@+id/button_save"
@@ -399,7 +399,7 @@
             android:layout_marginStart="10dp"
             android:text="Save"
             android:textStyle="bold"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:background="@drawable/button_large"/>
     </TableRow>
 </RelativeLayout>

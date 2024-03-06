@@ -72,7 +72,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         TextView timerTextView = findViewById(R.id.timerTextView);
-        startTimer(timerTextView, 120000); //120000 milliseconds = 2 minutes
+        startTimer(timerTextView, 90000); //90000 milliseconds = 1.5 minutes
     }
 
     private void startTimer(TextView timerTextView, long timeLengthMilliseconds) {

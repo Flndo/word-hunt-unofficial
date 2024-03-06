@@ -13,5 +13,11 @@
         android:layout_height="wrap_content"
         android:text="@string/start_game"
         android:onClick="startGame" />
+    <Button
+        android:id="@+id/leaderboardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leaderboard"
+        android:onClick="startLeaderboard" />
 
 </LinearLayout>

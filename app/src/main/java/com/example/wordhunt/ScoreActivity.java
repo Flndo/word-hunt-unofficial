@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wordhunt.api.GlobalClasses;
 import com.example.wordhunt.api.WordCheck;
+import com.example.wordhunt.api.WordHunterDatabaseHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ import java.util.SortedSet;
 public class ScoreActivity extends AppCompatActivity {
     public int score = 0;
     WordCheck wordCheck;
+    WordHunterDatabaseHelper wordHunterDatabaseHelper = new WordHunterDatabaseHelper(this);
     private final TextView[][] virtualGrid = new TextView[11][2];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +69,17 @@ public class ScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ScoreActivity.this);
-                builder.setTitle("Please enter your name");
-                builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                builder.setTitle("Enter your name");
+                builder.setMessage("Please use only English letters or numerals");
 
+                final EditText input = new EditText(ScoreActivity.this);
+                builder.setView(input);
+
+                builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    String playerName = input.getText().toString();
+                    if (validWord(playerName)) {
+                        wordHunterDatabaseHelper.addScore(playerName, score); //crashes
+                    }
                     Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
@@ -90,5 +101,16 @@ public class ScoreActivity extends AppCompatActivity {
     }
     private String intToString(int number) {
         return String.valueOf(number);
+    }
+    private boolean validWord(String word) {
+        for (int letter = 0; letter < word.length(); letter++) {
+            char symbol = word.charAt(letter);
+            if ((symbol >= '0' && symbol <= '9') || (symbol >= 'a' && symbol <= 'z') || (symbol >= 'A' && symbol <= 'Z')) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }

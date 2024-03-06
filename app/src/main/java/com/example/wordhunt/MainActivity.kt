@@ -25,4 +25,8 @@ class MainActivity : ComponentActivity() {
         val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
+    fun startLeaderboard(view: View) {
+        val intent = Intent(this, LeaderboardActivity::class.java)
+        startActivity(intent)
+    }
 }
