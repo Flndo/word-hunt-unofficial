@@ -14,5 +14,12 @@
         android:text="@string/start_game"
         android:textSize="28sp"
         android:onClick="startGame" />
+    <Button
+        android:id="@+id/leaderboardButton"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="@string/leaderboard"
+        android:textSize="28sp"
+        android:onClick="startLeaderboard" />
 
 </LinearLayout>

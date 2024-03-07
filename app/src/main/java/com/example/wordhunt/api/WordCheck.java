@@ -65,6 +65,14 @@ public class WordCheck {
         }
     }
 
+    public String getWord(LinkedList<TextView> wordLinked) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (TextView letterView: wordLinked) {
+            stringBuilder.append(letterView.getText());
+        }
+        return stringBuilder.reverse().toString();
+    }
+
     public void clearGame() {
         wordUsed.clear();
     }

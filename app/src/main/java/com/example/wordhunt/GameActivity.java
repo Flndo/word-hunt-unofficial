@@ -57,8 +57,6 @@ public class GameActivity extends AppCompatActivity {
 
         scoreTextView = findViewById(R.id.scoreTextView);
         scoreTextView.setText("0");
-        wordsTextView = findViewById(R.id.wordsTextView);
-        wordsTextView.setText("0");
 
         usedLetters.clear();
         letterSequence.clear();
@@ -72,7 +70,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         TextView timerTextView = findViewById(R.id.timerTextView);
-        startTimer(timerTextView, 90000); //90000 milliseconds = 1.5 minutes
+        startTimer(timerTextView, 20000); //90000 milliseconds = 1.5 minutes
     }
 
     private void startTimer(TextView timerTextView, long timeLengthMilliseconds) {
@@ -108,6 +106,7 @@ public class GameActivity extends AppCompatActivity {
                 letterSequence.pop();
             }
             previousColumn = previousRow = -1;
+            hideWord();
         } else if (cell == null) {
             return super.onTouchEvent(event);
         } else if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
@@ -115,10 +114,13 @@ public class GameActivity extends AppCompatActivity {
             int score = wordCheck.wordScore(letterSequence, false);
             if (score == 1) {
                 colorUsed(letterSequence);
+                hideWord();
             } else if (score != 0) {
                 colorRight(letterSequence);
+                showWord(wordCheck.getWord(letterSequence), score);
             } else {
                 colorPressed(letterSequence);
+                hideWord();
             }
         }
         return super.onTouchEvent(event);
@@ -216,5 +218,13 @@ public class GameActivity extends AppCompatActivity {
                 cell.setBackground(getDrawable(tileBackgroundPressedUsed));
             }
         }
+    }
+    private void showWord(String word, int points) {
+        TextView potentialScore = findViewById(R.id.potentialScore);
+        potentialScore.setText(String.format("+%d %s", points, word));
+    }
+    private void hideWord() {
+        TextView potentialScore = findViewById(R.id.potentialScore);
+        potentialScore.setText("");
     }
 }

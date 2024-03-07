@@ -22,13 +22,6 @@
             android:src="@drawable/avatar_icon" /> <!-- Replace with your avatar drawable -->
 
         <TextView
-            android:id="@+id/wordsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +35,17 @@
             android:layout_marginLeft="24dp"
             android:textSize="18sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/potentialScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
     <GridLayout
         android:id="@+id/letterGrid"

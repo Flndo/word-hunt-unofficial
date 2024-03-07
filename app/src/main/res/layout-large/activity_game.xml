@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#1C1C84">
 
     <!-- Score Panel -->
@@ -17,31 +18,35 @@
 
         <ImageView
             android:id="@+id/avatarImage"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:src="@drawable/avatar_icon" /> <!-- Replace with your avatar drawable -->
-
-        <TextView
-            android:id="@+id/wordsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:textSize="18sp" />
+            android:layout_marginLeft="40dp"
+            android:textSize="32sp" />
 
         <TextView
             android:id="@+id/timerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:textSize="18sp" />
+            android:layout_marginLeft="40dp"
+            android:textSize="32sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/potentialScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="195dp"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="40sp"/>
 
     <GridLayout
         android:id="@+id/letterGrid"
@@ -67,7 +72,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell01"
@@ -78,7 +83,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell02"
@@ -89,7 +94,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell03"
@@ -100,7 +105,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell04"
@@ -111,7 +116,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <!-- Row 2 -->
         <TextView
@@ -123,7 +128,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell11"
@@ -134,7 +139,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell12"
@@ -145,7 +150,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell13"
@@ -156,7 +161,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell14"
@@ -167,7 +172,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <!-- Row 3 -->
         <TextView
@@ -179,7 +184,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell21"
@@ -190,7 +195,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell22"
@@ -201,7 +206,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell23"
@@ -212,7 +217,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell24"
@@ -223,7 +228,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <!-- Row 4 -->
         <TextView
@@ -235,7 +240,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell31"
@@ -246,7 +251,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell32"
@@ -256,7 +261,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell33"
@@ -267,7 +272,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell34"
@@ -278,7 +283,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <!-- Row 5 -->
         <TextView
@@ -290,7 +295,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell41"
@@ -301,7 +306,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell42"
@@ -312,7 +317,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell43"
@@ -323,7 +328,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/cell44"
@@ -334,7 +339,7 @@
             android:background="@drawable/tile_background_large"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="52sp"/>
+            android:textSize="52sp" />
 
     </GridLayout>
 

@@ -107,6 +107,8 @@ public class ScoreActivity extends AppCompatActivity {
             char symbol = word.charAt(letter);
             if ((symbol >= '0' && symbol <= '9') || (symbol >= 'a' && symbol <= 'z') || (symbol >= 'A' && symbol <= 'Z')) {
                 continue;
+            } else if (symbol == '_' || symbol == '-' || symbol == ' ') {
+                continue;
             } else {
                 return false;
             }
