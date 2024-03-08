@@ -22,11 +22,14 @@ import java.util.LinkedList;
 public class GameActivity extends AppCompatActivity {
     boolean layoutLarge = false;
     private static final int gridSize = 5;
-    private static final int cellSafeZone = 17;
+    private static final int cellSafeZoneSmall = 13;
+    private static final int cellSafeZoneLarge = 25;
+    private static int cellSafeZone;
     private int totalScore = 0;
     private final TextView[][] virtualGrid = new TextView[gridSize][gridSize];
     private final HashSet<TextView> usedLetters = new HashSet<>();
     private final LinkedList<TextView> letterSequence = new LinkedList<>();
+    private final LinkedList<TextView> previousLetterSequence = new LinkedList<>();
     private int previousRow = -1;
     private int previousColumn = -1;
     private final int tileBackground = R.drawable.tile_background;
@@ -38,13 +41,15 @@ public class GameActivity extends AppCompatActivity {
     private final int tileBackgroundPressedOkLarge = R.drawable.tile_background_pressed_ok_large;
     private final int tileBackgroundPressedUsedLarge = R.drawable.tile_background_pressed_used_large;
     WordCheck wordCheck;
-    TextView scoreTextView, wordsTextView;
+    TextView scoreTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Configuration configuration = getResources().getConfiguration();
         int screenSize = configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+        cellSafeZone = cellSafeZoneSmall;
         if (screenSize >= Configuration.SCREENLAYOUT_SIZE_LARGE) {
             layoutLarge = true;
+            cellSafeZone = cellSafeZoneLarge;
         }
 
         GridSetup gridSetup = new GridSetup();
@@ -60,6 +65,7 @@ public class GameActivity extends AppCompatActivity {
 
         usedLetters.clear();
         letterSequence.clear();
+        previousLetterSequence.clear();;
         WordCheck.wordCheck.clearGame();
 
         for (int row = 0; row < gridSize; row++) {
@@ -70,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         TextView timerTextView = findViewById(R.id.timerTextView);
-        startTimer(timerTextView, 20000); //90000 milliseconds = 1.5 minutes
+        startTimer(timerTextView, 90000); //90000 milliseconds = 1.5 minutes
     }
 
     private void startTimer(TextView timerTextView, long timeLengthMilliseconds) {
@@ -105,11 +111,28 @@ public class GameActivity extends AppCompatActivity {
                 usedLetters.remove(letterSequence.getFirst());
                 letterSequence.pop();
             }
+            previousLetterSequence.clear();
             previousColumn = previousRow = -1;
             hideWord();
         } else if (cell == null) {
             return super.onTouchEvent(event);
+        } else if (!previousLetterSequence.isEmpty() && cell == previousLetterSequence.getFirst()) {
+            removeLetter(letterSequence.getFirst());
+            int score = wordCheck.wordScore(letterSequence, false);
+            if (score == 1) {
+                colorUsed(letterSequence);
+                hideWord();
+            } else if (score != 0) {
+                colorRight(letterSequence);
+                showWord(wordCheck.getWord(letterSequence), score);
+            } else {
+                colorPressed(letterSequence);
+                hideWord();
+            }
         } else if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+            if (!letterSequence.isEmpty()) {
+                previousLetterSequence.push(letterSequence.getFirst());
+            }
             addLetter(cell);
             int score = wordCheck.wordScore(letterSequence, false);
             if (score == 1) {
@@ -138,7 +161,8 @@ public class GameActivity extends AppCompatActivity {
 
                 if (rawX - cellSafeZone >= textViewX && rawX + cellSafeZone <= textViewX + textView.getWidth() &&
                         rawY - cellSafeZone >= textViewY && rawY + cellSafeZone <= textViewY + textView.getHeight()) {
-                    if (previousRow == -1 && previousColumn == -1 || (abs(row - previousRow) <= 1 && abs(column - previousColumn) <= 1 && !usedLetters.contains(virtualGrid[row][column]))) {
+                    if (previousRow == -1 && previousColumn == -1 || (abs(row - previousRow) <= 1 && abs(column - previousColumn) <= 1 &&
+                            (!usedLetters.contains(virtualGrid[row][column]) || (!previousLetterSequence.isEmpty() && previousLetterSequence.getFirst() == virtualGrid[row][column])))) {
                         previousRow = row;
                         previousColumn = column;
                         return textView;
@@ -152,9 +176,19 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void addLetter(TextView cell) {
-        cell.setBackground(getDrawable(tileBackgroundPressed));
         letterSequence.push(cell);
         usedLetters.add(cell);
+    }
+
+    private void removeLetter(TextView cell) {
+        if (layoutLarge) {
+            cell.setBackground(getDrawable(tileBackgroundLarge));
+        } else {
+            cell.setBackground(getDrawable(tileBackground));
+        }
+        letterSequence.pop();
+        previousLetterSequence.pop();
+        usedLetters.remove(cell);
     }
 
     private int abs(int x) {
