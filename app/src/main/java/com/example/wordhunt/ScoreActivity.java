@@ -80,7 +80,7 @@ public class ScoreActivity extends AppCompatActivity {
                     if (validWord(playerName)) {
                         wordHunterDatabaseHelper.addScore(playerName, score); //crashes
                     }
-                    Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ScoreActivity.this, LeaderboardActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                 });
