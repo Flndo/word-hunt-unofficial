@@ -22,8 +22,8 @@ import java.util.LinkedList;
 public class GameActivity extends AppCompatActivity {
     boolean layoutLarge = false;
     private static final int gridSize = 5;
-    private static final int cellSafeZoneSmall = 13;
-    private static final int cellSafeZoneLarge = 25;
+    private static final int cellSafeZoneSmall = 8;
+    private static final int cellSafeZoneLarge = 16;
     private static int cellSafeZone;
     private int totalScore = 0;
     private final TextView[][] virtualGrid = new TextView[gridSize][gridSize];
